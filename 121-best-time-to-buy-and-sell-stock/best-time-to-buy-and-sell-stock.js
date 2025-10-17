@@ -3,19 +3,22 @@
  * @return {number}
  */
 var maxProfit = function(prices) {
-    let maxProfit=0
-    let minPrice=Infinity
-  for(let i=0;i<prices.length;i++){
-  
-     if(prices[i]-minPrice>maxProfit){
-        
-        maxProfit=prices[i]-minPrice
-     }else if(prices[i]<minPrice){
-        minPrice=prices[i]
 
-     }
-  }
-console.log("jdj",maxProfit)
+    let miniPrice=Infinity
+    let maxPrice=0
+    for(let x of prices){
+        if(x<miniPrice){
+            miniPrice=x
+        } else {
 
-return maxProfit
+
+           maxPrice= Math.max(maxPrice,x-miniPrice)
+        }
+       
+    }
+     console.log(maxPrice)
+        console.log(miniPrice)
+    return maxPrice
+    
+
 };
